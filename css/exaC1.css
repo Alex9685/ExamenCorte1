@@ -1,0 +1,31 @@
+body{
+    background-color: rgb(0, 26, 63);
+}
+#encabezado{
+    background-color: rgb(64, 0, 117);
+    color: aliceblue;
+    width: 600px;
+    border-radius: 50px;
+    border-color: aqua;
+    margin: auto;
+}
+.container{
+    background-color: rgb(22, 2, 137);
+    width: 1200px;
+    margin: auto;
+    color: aliceblue;
+    border-radius: 20px;
+    border-color: cornsilk;
+    border-style: double;
+}
+input{
+    padding-left: 500px;
+    color: aliceblue;
+    text-align: center;
+    width: 200px;
+    height: 100px;
+
+}
+h3{
+    text-align: center;
+}
