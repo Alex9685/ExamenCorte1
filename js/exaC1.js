@@ -1,29 +1,21 @@
-//document.querySelector('#mostrar').addEventListener('click', traerDatos());
-const btnmostrar = document.getElementById('mostrar').addEventListener('click',function(){
-    traerDatos();
-});
-const btnLmipiar = document.getElementById("limpiar").addEventListener('click', function(){
-    Limpiar();
-});
 
 
 function traerDatos(){
-    const http = new XMLHttpRequest();
-    
-    http.open('GET','alumnos.json', true);
+    const url = "alumnos.json";
 
+    axios
+    .get(url)
+    .then((res) =>{
+        mostrar(res.data);
+    }).catch((err)=>{
+        console.log("Surgio un error" + err);
+    })
 
-    http.send();
-    http.onreadystatechange=function(){
-        if(this.status==200 && this.readyState==4){
-            const datos =JSON.parse(this.responseText);
-           
-            let cant=0;
-            let conteo=0;
-            const res=document.querySelector('#res');
-            res.innerHTML="";
+    function mostrar(data){
+        let conteo=0;
+        let cant=0;
 
-            for(let item of datos){
+        for(item of data){
 
                 res.innerHTML += `
                 <tr>
@@ -51,7 +43,14 @@ function traerDatos(){
             
         }
     }
-}
+//document.querySelector('#mostrar').addEventListener('click', traerDatos());
+const btnmostrar = document.getElementById('mostrar').addEventListener('click',function(){
+    traerDatos();
+});
+const btnLmipiar = document.getElementById("limpiar").addEventListener('click', function(){
+    Limpiar();
+});
+
 function Limpiar(){
     location. reload()
 }
